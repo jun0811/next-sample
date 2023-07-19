@@ -26,24 +26,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
     {
       params: {
         id: "1",
-        name: "lsj",
       },
     },
     {
       params: {
         id: "2",
-        name: "kim",
       },
     },
     {
       params: {
         id: "3",
-        name: "park",
       },
     },
   ];
 
-  return { paths, fallback: false };
+  return { paths, fallback: false }; // fallback이 true이면 데이터 맞춰서 동적 라우팅이 들어간다.
 };
 
 interface PostParams extends ParsedUrlQuery {
