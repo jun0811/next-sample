@@ -1,5 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type SSGProps = {
   message: string;
@@ -7,6 +9,9 @@ type SSGProps = {
 
 const SSG: NextPage<SSGProps> = (props) => {
   const { message } = props;
+  const router = useRouter();
+  console.log(router.query.keyword);
+
   return (
     <div>
       <Head>
@@ -16,6 +21,8 @@ const SSG: NextPage<SSGProps> = (props) => {
       <main>
         <p>이 페이지는 SSG를 통해 생성된 페이지입니다.</p>
         <p>{message}</p>
+        <h2>{router.query.keyword}</h2>
+        <Link href="/ssr">SSR</Link>
       </main>
     </div>
   );

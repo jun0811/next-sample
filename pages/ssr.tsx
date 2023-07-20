@@ -2,6 +2,7 @@ import React from "react";
 
 import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 type SSRProps = {
   message: string;
@@ -9,6 +10,8 @@ type SSRProps = {
 
 const SSR: NextPage<SSRProps> = (props) => {
   const { message } = props;
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -19,6 +22,18 @@ const SSR: NextPage<SSRProps> = (props) => {
         <p>이 페이지는 SSR를 통해 생성된 페이지입니다.</p>
         <p>{message}</p>
       </main>
+      <button
+        onClick={() =>
+          router.push({
+            pathname: "/ssg",
+            query: {
+              keyword: "hello",
+            },
+          })
+        }
+      >
+        ssg
+      </button>
     </div>
   );
 };
