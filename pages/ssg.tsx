@@ -22,6 +22,8 @@ const SSG: NextPage<SSGProps> = (props) => {
         <p>이 페이지는 SSG를 통해 생성된 페이지입니다.</p>
         <p>{message}</p>
         <h2>{router.query.keyword}</h2>
+        <p>{process.env.TEST}</p>
+
         <Link href="/ssr">SSR</Link>
       </main>
     </div>

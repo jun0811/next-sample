@@ -4,7 +4,7 @@ const SayHello = () => {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    fetch("api/hello")
+    fetch("/api/hello")
       .then((res) => res.json())
       .then((res) => setData(res.name));
 

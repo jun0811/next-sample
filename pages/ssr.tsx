@@ -21,6 +21,7 @@ const SSR: NextPage<SSRProps> = (props) => {
       <main>
         <p>이 페이지는 SSR를 통해 생성된 페이지입니다.</p>
         <p>{message}</p>
+        <p>{process.env.NEXT_PUBLIC_TEST}</p>
       </main>
       <button
         onClick={() =>
