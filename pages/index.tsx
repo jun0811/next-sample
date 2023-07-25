@@ -28,7 +28,6 @@ const Button = styled.button<ButtonProps>`
 export default function Home() {
   return (
     <>
-      <Badge>Next</Badge>;
       <br />
       <Button color="red" background="white">
         Test Button
