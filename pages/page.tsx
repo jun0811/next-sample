@@ -35,7 +35,7 @@ const BaseLink = (props: BaseLinkProps) => {
 
 const StyledLink = styled(BaseLink)`
   color: #1e90ff;
-  font-size: 2em;
+  font-size: ${(props) => props.theme.fontSize[3]};
 `;
 
 const Page: NextPage = () => {
