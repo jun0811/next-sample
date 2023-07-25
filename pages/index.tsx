@@ -27,7 +27,7 @@ const Button = styled.button<ButtonProps>`
 
 export default function Home() {
   return (
-    <>
+    <div className="main">
       <br />
       <Button color="red" background="white">
         Test Button
@@ -36,6 +36,6 @@ export default function Home() {
       <Button color="skyblue" background="yellow">
         Test Button
       </Button>
-    </>
+    </div>
   );
 }

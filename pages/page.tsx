@@ -1,10 +1,6 @@
+import { NextPage } from "next";
+import Link from "next/link";
 import { styled, css } from "styled-components";
-
-const redBox = css`
-  border: 1px solid #ff0000;
-  padding: 0.25em 1em;
-  border-radius: 10px;
-`;
 
 const blueFont = css`
   color: #1e90ff;
@@ -16,18 +12,38 @@ const Title = styled.h2`
   ${blueFont}
 `;
 
-const Button = styled.button`
-  background: transparent;
-  margin: 1rem;
-  cursor: pointer;
-  ${redBox}
-  ${blueFont}
+const BorderedTitle = styled(Title)`
+  padding: 8px 16px;
+  border: 2px solid blue;
+  border-radius: 4px;
 `;
-const Page = () => {
+
+interface BaseLinkProps {
+  className?: string;
+  children: React.ReactNode;
+  href: string;
+}
+
+const BaseLink = (props: BaseLinkProps) => {
+  const { className, children, href, ...rest } = props;
+  return (
+    <Link href={href} {...rest}>
+      <div className={className}>{children}</div>
+    </Link>
+  );
+};
+
+const StyledLink = styled(BaseLink)`
+  color: #1e90ff;
+  font-size: 2em;
+`;
+
+const Page: NextPage = () => {
   return (
     <div>
-      <Title> Styled Component</Title>
-      <Button>Hello World</Button>
+      <Title>Styled Component</Title>
+      <BorderedTitle>상속</BorderedTitle>
+      <StyledLink href="/">style link</StyledLink>
     </div>
   );
 };
