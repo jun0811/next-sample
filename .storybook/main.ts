@@ -19,7 +19,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config: any, { configType }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@": path.resolve(__dirname, "../src/"),

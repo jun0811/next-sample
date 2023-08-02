@@ -6,20 +6,6 @@ import { useState } from "react";
 export default {
   title: "StyledButton",
   component: StyledButton,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
-  },
-  tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      options: Object.keys(variants),
-      control: { type: "radio" },
-    },
-    onClick: {
-      action: "clicked",
-    },
-  },
 } as Meta<typeof StyledButton>;
 
 type Story = StoryObj<typeof StyledButton>;
@@ -31,9 +17,12 @@ type Story = StoryObj<typeof StyledButton>;
 //     children: "primary",
 //   },
 // };
-export const Primary: Story = {
-  args: {
-    variant: "primary",
-    children: "primary",
-  },
+export const Primary = (props: any) => {
+  return <StyledButton {...props}>Primary</StyledButton>;
+};
+export const Success = (props: any) => {
+  return <StyledButton {...props}>Success</StyledButton>;
+};
+export const Transparent = (props: any) => {
+  return <StyledButton {...props}>Transparent</StyledButton>;
 };
