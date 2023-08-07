@@ -10,8 +10,7 @@ type SSGProps = {
 const SSG: NextPage<SSGProps> = (props) => {
   const { message } = props;
   const router = useRouter();
-  console.log(router.query.keyword);
-
+  console.log(message);
   return (
     <div>
       <Head>
@@ -22,7 +21,6 @@ const SSG: NextPage<SSGProps> = (props) => {
         <p>이 페이지는 SSG를 통해 생성된 페이지입니다.</p>
         <p>{message}</p>
         <h2>{router.query.keyword}</h2>
-        <p>{process.env.TEST}</p>
 
         <Link href="/ssr">SSR</Link>
       </main>
@@ -33,7 +31,6 @@ const SSG: NextPage<SSGProps> = (props) => {
 export const getStaticProps: GetStaticProps<SSGProps> = async (context) => {
   const timestamp = new Date().toLocaleString();
   const message = `${timestamp}에 getStaticProps가 실행되었습니다.`;
-  console.log(message);
   return {
     props: { message },
   };
