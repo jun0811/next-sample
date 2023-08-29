@@ -1,4 +1,10 @@
-import { render, screen, RenderResult, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  RenderResult,
+  waitFor,
+  fireEvent,
+} from "@testing-library/react";
 import Input from "./index";
 import userEvent from "@testing-library/user-event";
 
@@ -22,8 +28,10 @@ describe("input", () => {
     const inputText = "Test Input Text";
     const inputNode = screen.getByLabelText("username") as HTMLInputElement;
 
-    userEvent.type(inputNode, inputText);
-    waitFor(() => expect(inputNode).toHaveValue(inputText));
+    fireEvent.change(inputNode, { target: { value: inputText } });
+    expect(inputNode).toHaveValue(inputText);
+    // userEvent.type(inputNode, inputText);
+    // waitFor(() => expect(inputNode).toHaveValue(inputText));
   });
 
   it("shold reset when user clicks button", () => {

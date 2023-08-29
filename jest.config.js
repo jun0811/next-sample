@@ -11,6 +11,6 @@ const customJestConfig = {
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
     "^@public/(.*)$": "<rootDir>/public/$1",
   },
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
 };
 module.exports = createJestConfig(customJestConfig);
